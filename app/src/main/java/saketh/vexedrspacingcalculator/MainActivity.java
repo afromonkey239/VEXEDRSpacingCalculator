@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 //progress.setProgress(quantity);
                                 spacerCount[i] = quantity++;
-1
+
                                 remaining -= widths[i];
 
                             }
