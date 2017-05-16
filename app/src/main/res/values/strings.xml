@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">VEX EDR Spacing Calculator</string>
+
+    <string-array name="units">
+        <item>Inches</item>
+        <item>Centimeters</item>
+        <item>Holes</item>
+    </string-array>
+
+</resources>
