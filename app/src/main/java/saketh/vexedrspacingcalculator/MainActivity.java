@@ -5,11 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner mySpinner;
 
+    CheckBox nylon5,nylon375,nylon25,nylon125,teflon4,steel32;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,14 @@ public class MainActivity extends AppCompatActivity {
 
         mySpinner.setAdapter(units);
 
+        nylon5 = (CheckBox) findViewById(R.id.nylon0_5check);
+        nylon375 = (CheckBox) findViewById(R.id.nylon0_375check);
+        nylon25 = (CheckBox) findViewById(R.id.nylon0_25check);
+        nylon125 = (CheckBox) findViewById(R.id.nylon0_125check);
+        teflon4 = (CheckBox) findViewById(R.id.teflon0_04check);
+        steel32 = (CheckBox) findViewById(R.id.steel0_032check);
 
+        final ArrayList<CheckBox> checked = new ArrayList<CheckBox>(Arrays.asList(nylon5,nylon375,nylon25,nylon125,teflon4,steel32));
 
         txtCount.setText("Nothing Inputted");
 
@@ -92,22 +103,24 @@ public class MainActivity extends AppCompatActivity {
                     String[] spacers = {"0.5 Nylon", "0.375 Nylon", "0.25 Nylon", "0.125 Nylon", "Teflon", "Steel Washer"};
                     double[] widths = {0.5, 0.375, 0.25, 0.125, 0.04, 0.032};
 
-
                     int[] spacerCount = {0, 0, 0, 0, 0, 0};
 
 
                     for (int i = 0; i < spacers.length; i++) {
                         int quantity = 1;
 
+                        if(checked.get(i).isChecked() == true){
+                            while (remaining >= widths[i]) {
 
-                        while (remaining >= widths[i]) {
+                                //progress.setProgress(quantity);
+                                spacerCount[i] = quantity++;
+1
+                                remaining -= widths[i];
 
-                            //progress.setProgress(quantity);
-                            spacerCount[i] = quantity++;
-
-                            remaining -= widths[i];
-
+                            }
                         }
+
+
                     }
 
 
